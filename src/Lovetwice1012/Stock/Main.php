@@ -23,8 +23,7 @@ class Main extends PluginBase implements Listener {
                 $this->getServer()->getPluginManager()->disablePlugin($this);
                 }
 		$this->config1 = new Config($this->getDataFolder() . "stock.yml", Config::YAML);
-		$time = 5; 
-                $this->getScheduler()->scheduleRepeatingTask(new TimeTask($this), $time);
+		
 	}
 
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
@@ -80,51 +79,4 @@ class Main extends PluginBase implements Listener {
                 return true;
     }
 
-}
-
-class TimeTask extends Task
-{
-    public $config;
-	    
-    public function __construct(Main $main)
-    {    
-        $this->config = $main->config1;
-    }
-
-    public function onRun(int $ticks)
-    {
-    	    
-	    	$config=$this->config;
-		$mode=random_int(1,3);
-		switch($mode){
-			case 1:
-			    $bigbomb=random_int(1,50);
-			    if($bigbomb===1){
-				$config->set("price",$config->get("price")+random_int(1000,5000));  
-			    }else{
-			        $config->set("price",$config->get("price")+random_int(10,50));  
-			    }
-			break;
-			case 2:
-			    $bigbomb=random_int(1,50);
-			    if($bigbomb===1){
-				$config->set("price",floor($config->get("price")/3));  
-			    }else{
-				if($config->get("price")-50>0){
-			            $config->set("price",$config->get("price")-random_int(10,50));  
-				}
-			    }
-		        break;
-			case 3:
-			break;
-			
-		}
-		    $config->save();
-	    
-	    
-	
-            
-            
-    }
-    
 }
