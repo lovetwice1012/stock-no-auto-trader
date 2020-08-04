@@ -1,0 +1,8 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/lovetwice1012/stock
+build-by-default: true
+branches:
+- master
+projects:
+  stock:
+    path: ""
+...

@@ -1,0 +1,17 @@
+name: Stock
+main: Lovetwice1012\Stock\Main
+version: 1.0.0
+api: [3.0.0, 4.0.0]
+author: Lovetwice1012
+description: 株取引を追加
+
+commands:
+  sellstock:
+    description: 株を売ります。
+    usage: /sellstock amount
+  buystock:
+    description: 株を買います。
+    usage: /buystock amount
+  checkstock:
+    description: 現在の株価を確認ます。
+    usage: /checkstock
